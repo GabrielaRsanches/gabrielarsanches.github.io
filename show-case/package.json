@@ -1,0 +1,14 @@
+{
+  "name": "show-case",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "astro check && astro build",
+    "serve": "astro check && astro dev"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.2.1",
+    "astro": "^3.3.4",
+    "typescript": "^5.2.2"
+  }
+}

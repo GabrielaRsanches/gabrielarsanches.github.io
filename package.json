@@ -1,0 +1,19 @@
+{
+  "name": "show-case",
+  "version": "1.0.0",
+  "description": "This is my portifolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielaRsanches/showcase-gabriela-sanches.git"
+  },
+  "author": "Gabriela Sanches",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielaRsanches/showcase-gabriela-sanches/issues"
+  },
+  "homepage": "https://github.com/GabrielaRsanches/showcase-gabriela-sanches#readme"
+}
