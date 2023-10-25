@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GabrielaRsanches/showcase-gabriela-sanches.git"
+    "url": "git+https://github.com/GabrielaRsanches/gabrielarsanches.git"
   },
   "author": "Gabriela Sanches",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GabrielaRsanches/showcase-gabriela-sanches/issues"
+    "url": "https://github.com/GabrielaRsanches/gabrielarsanches.github.io/issues"
   },
-  "homepage": "https://github.com/GabrielaRsanches/showcase-gabriela-sanches#readme"
+  "homepage": "https://github.com/GabrielaRsanches/gabrielarsanches.github.io#readme"
 }
