@@ -1,19 +1,14 @@
 {
-  "name": "gabrielarsanches.github.io",
-  "version": "1.0.0",
-  "description": "This is my portifolio",
-  "main": "index.js",
+  "name": "show-case",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "test": "npm run test"
+    "build": "astro check && astro build",
+    "serve": "astro check && astro dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GabrielaRsanches/gabrielarsanches.git"
-  },
-  "author": "Gabriela Sanches",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GabrielaRsanches/gabrielarsanches.github.io/issues"
-  },
-  "homepage": "https://github.com/GabrielaRsanches/gabrielarsanches.github.io#readme"
+  "dependencies": {
+    "@astrojs/check": "^0.2.1",
+    "astro": "^3.3.4",
+    "typescript": "^5.2.2"
+  }
 }
