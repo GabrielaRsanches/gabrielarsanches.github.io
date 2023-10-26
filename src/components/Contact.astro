@@ -1,5 +1,5 @@
 ---
-import Button from '@components/ui/Button.astro';
+
 import Social from '@components/ui/Social.astro';
 ---
 
@@ -8,7 +8,7 @@ import Social from '@components/ui/Social.astro';
 	id="contact"
 	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0 lg:h-screen"
 >
-	<Button size={'lg'} style={'primary'} id="copyButton" name="copyButton">gabrielasanchesdeveloper@gmail.com</Button>
+	<button style={'primary'} id="copyButton" name="copyButton" onclick="copyTextToClipboard">gabrielasanchesdeveloper@gmail.com</button>
 	<hr class="w-1/2" />
 	<div class="flex flex-col gap-8 lg:flex lg:flex-row lg:gap-20">
 		<Social />
@@ -18,40 +18,25 @@ import Social from '@components/ui/Social.astro';
 <script>
 	// TypeScript code
 	const copyButton = document.getElementById("copyButton");
+	if(copyButton){
+		const tempInput = document.createElement("input");
+		tempInput.value = copyButton.innerText;
 
-    if (copyButton) {
-        copyButton.addEventListener("click", function() {
-            copyTextToClipboard();
-        });
-    }
+		// Append the input element to the document
+		document.body.appendChild(tempInput);
 
-		function copyTextToClipboard() {
-            // Select the text you want to copy
-            const text = document.getElementById("copyButton");
-						try{
-							if (text) {
-                // Create a temporary input element to hold the text
-                const tempInput = document.createElement("input");
-                tempInput.value = text.innerText;
+		// Select the text in the input element
+		tempInput.select();
 
-                // Append the input element to the document
-                document.body.appendChild(tempInput);
+		// Copy the selected text to the clipboard
+		navigator.clipboard.writeText(tempInput.value)
+			
+		// Remove the temporary input element
+		document.body.removeChild(tempInput);
 
-                // Select the text in the input element
-                tempInput.select();
-
-                // Copy the selected text to the clipboard
-                document.execCommand("copy");
-
-                // Remove the temporary input element
-                document.body.removeChild(tempInput);
-
-                // Notify the user that the text has been copied
-                alert("Text copied to clipboard: " + tempInput.value);
-            }
-						}catch(error){
-							console.log(error)
-						}
-            
-        }
+		// Notify the user that the text has been copied
+		alert("Text copied to clipboard: " + tempInput.value);
+	}
+	
+			       
 </script>
