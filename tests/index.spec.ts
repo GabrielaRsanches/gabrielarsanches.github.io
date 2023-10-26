@@ -26,7 +26,7 @@ test.describe('ui test', () => {
 		const metaDescription = page.locator("meta[name='description']");
 		await expect(metaDescription).toHaveAttribute(
 			'content',
-			'A heavily optimized description full of well-researched keywords.'
+			'I am Gabriela and this is my portifolio'
 		);
 		const html = page.locator('html');
 		await expect(html).toHaveClass('scroll-smooth');
