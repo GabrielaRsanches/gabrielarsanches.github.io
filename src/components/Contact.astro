@@ -8,7 +8,7 @@ import Social from '@components/ui/Social.astro';
 	id="contact"
 	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0 lg:h-screen"
 >
-	<button style={'primary'} id="copyButton" name="copyButton" onclick="copyTextToClipboard">gabrielasanchesdeveloper@gmail.com</button>
+	<button style={'primary'} id="copyButton" name="copyButton">gabrielasanchesdeveloper@gmail.com</button>
 	<hr class="w-1/2" />
 	<div class="flex flex-col gap-8 lg:flex lg:flex-row lg:gap-20">
 		<Social />
@@ -18,25 +18,30 @@ import Social from '@components/ui/Social.astro';
 <script>
 	// TypeScript code
 	const copyButton = document.getElementById("copyButton");
-	if(copyButton){
-		const tempInput = document.createElement("input");
-		tempInput.value = copyButton.innerText;
 
-		// Append the input element to the document
-		document.body.appendChild(tempInput);
+	document.addEventListener("DOMContentLoaded", function () {
+    const copyButton = document.getElementById("copyButton");
 
-		// Select the text in the input element
-		tempInput.select();
+    if (copyButton) {
+        copyButton.addEventListener("click", function () {
+            copyTextToClipboard();
+        });
+    }
+	});
 
-		// Copy the selected text to the clipboard
-		navigator.clipboard.writeText(tempInput.value)
-			
-		// Remove the temporary input element
-		document.body.removeChild(tempInput);
+	function copyTextToClipboard() {
+	const text = document.getElementById("copyButton");
 
-		// Notify the user that the text has been copied
-		alert("Text copied to clipboard: " + tempInput.value);
+	if (text) {
+		const textToCopy = text.innerText;
+		navigator.clipboard.writeText(textToCopy)
+			.then(() => {
+					// The text has been successfully copied to the clipboard
+					alert("Text copied to clipboard: " + textToCopy);
+			})
+			.catch((error) => {
+					console.error("Unable to copy text to clipboard: " + error);
+			});
 	}
-	
-			       
+}       
 </script>
