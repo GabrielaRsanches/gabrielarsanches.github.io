@@ -1,0 +1,97 @@
+---
+
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+
+const menuitems = [
+	{
+		title: 'About',
+		path: '#about',
+	},
+	{
+		title: 'Projects',
+		path: '#projects',
+	},
+	{
+		title: 'Contact',
+		path: '#contact',
+	},
+];
+---
+<style>
+  header {
+		margin: 1em;
+		padding-top: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+		background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Add top padding to the content below the fixed navbar to prevent overlap */
+  body {
+    padding-top: /* Adjust the value based on your header's height */;
+  }
+</style>
+<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row" >
+	<Astronav>
+		<div class="flex w-full items-center justify-between lg:w-auto">
+			<button onclick(downloadPDF) id="downloadButton">Download CV</button>
+			<div class="block lg:hidden">
+				<MenuIcon class="h-4 w-4 text-black dark:text-white" />
+			</div>
+		</div>
+		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+			<ul class="flex flex-col lg:flex-row lg:gap-3">
+				{
+					menuitems.map((item) => (
+						<>
+							<li>
+								<a
+									aria-label="navigation link"
+									href={item.path}
+									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+								>
+									{item.title}
+								</a>
+							</li>
+						</>
+					))
+				}
+				<li><ToggleTheme /></li>
+			</ul>
+		</MenuItems>
+	</Astronav>
+</header>
+
+
+    
+<script>
+	// JavaScript function to trigger download
+	function downloadPDF() {
+			// Create a data URL for the PDF file (replace 'your_resume.pdf' with the actual URL)
+			const pdfURL = 'src/assets/images/Resume-Sanches-Gabriela.pdf';
+
+			// Create an anchor element to initiate the download
+			const anchor = document.createElement('a');
+			anchor.href = pdfURL;
+			anchor.download = 'Resume-Sanches-Gabriela.pdf'; // Set the default file name
+
+			// Programmatically click the anchor element
+			anchor.click();
+			alert('Resume Downloaded (:')
+	}
+	try{
+		const downloadButton = document.getElementById('downloadButton');
+		if(downloadButton){
+			downloadButton.addEventListener('click', downloadPDF);
+			
+		}
+	}catch(error){
+		console.log(error)
+	}
+	// Attach the downloadPDF function to the button's click event
+	
+</script>
