@@ -1,2 +1,8 @@
 
 Content-Security-Policy: script-src 'self' 'unsafe-inline' 'unsafe-eval' <https://gabrielarsanches.github.io>;
+
+AddType application/pdf .pdf
+<FilesMatch "\.(pdf)$">
+    ForceType application/octet-stream
+    Header set Content-Disposition attachment
+</FilesMatch>
