@@ -38,7 +38,8 @@ const menuitems = [
 <header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row" >
 	<Astronav>
 		<div class="flex w-full items-center justify-between lg:w-auto">
-			<button onclick(downloadPDF) id="downloadButton">Download CV</button>
+			<button onclick(downloadPDF) id="downloadButton"><a href="src/assets/Resume-Sanches-Gabriela.pdf" download="Resume-Sanches-Gabriela.pdf">Download CV</a>
+			</button>
 			<div class="block lg:hidden">
 				<MenuIcon class="h-4 w-4 text-black dark:text-white" />
 			</div>
@@ -72,7 +73,7 @@ const menuitems = [
 	// JavaScript function to trigger download
 	function downloadPDF() {
 			// Create a data URL for the PDF file (replace 'your_resume.pdf' with the actual URL)
-			const pdfURL = 'src/assets/Resume-Sanches-Gabriela.pdf';
+			const pdfURL = 'Resume-Sanches-Gabriela.pdf';
 
 			// Create an anchor element to initiate the download
 			const anchor = document.createElement('a');
@@ -80,14 +81,12 @@ const menuitems = [
 			anchor.download = 'Resume-Sanches-Gabriela.pdf'; // Set the default file name
 
 			// Programmatically click the anchor element
-			anchor.click();
-			alert('The dowload will start (:')
+			
 	}
 	try{
 		const downloadButton = document.getElementById('downloadButton');
 		if(downloadButton){
 			downloadButton.addEventListener('click', downloadPDF);
-			
 		}
 	}catch(error){
 		console.log(error)
