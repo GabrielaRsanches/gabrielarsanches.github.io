@@ -1,5 +1,5 @@
 ---
-import projectImage from '@assets/images/project.png';
+import projectImage from '@assets/images/wisdom-leao.jpg' ;
 import { Image } from '@astrojs/image/components';
 import Tags from '@components/ui/Tags.astro';
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 	tags: string[];
 	children?: HTMLElement | HTMLElement[];
 }
-
+const wisdom = require('@assets/images/wisdom-leao.jpg')
 const { url = '#', alt = 'Project image', title = 'Project title', tags = ['Tags'] } = Astro.props;
 ---
 
@@ -24,7 +24,7 @@ const { url = '#', alt = 'Project image', title = 'Project title', tags = ['Tags
 					src={projectImage}
 					alt={alt}
 					aspectRatio="4:4"
-					format="png"
+					format="jpg"
 					width={400}
 					height={400}
 					loading="eager"
